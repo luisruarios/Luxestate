@@ -19,6 +19,26 @@ A comprehensive luxury real estate platform featuring automated property seeding
 - **Dark Mode Default**: Sophisticated dark theme as primary experience
 - **Contact Information**: Professional contact details (contact@luxestate.com)
 
+
+### 🛠 **Technical Stack**
+- **Backend**: .NET 8, MongoDB, FluentValidation, Swagger/OpenAPI
+- **Frontend**: Next.js 14.2.5, React 18.2.0, Tailwind CSS 3.4.0, Framer Motion 10.0.0
+- **State Management**: Redux Toolkit 2.0.0 for property filtering and application state
+- **Database**: MongoDB with Docker containerization
+- **Styling**: Tailwind CSS with custom utilities, responsive design, and dark mode
+- **Icons**: Heroicons and Lucide React for consistent professional iconography
+- **Fonts**: Lato font family for professional typography
+- **Animation**: Framer Motion with hardware acceleration and performance optimization
+
+
+### 🌙 **Theme System**
+- **Dark Mode Default**: Professional dark theme as primary experience
+- **Light Mode Support**: Toggle between dark and light themes
+- **Theme Persistence**: User preference saved across sessions
+- **Smooth Transitions**: Animated theme switching with proper contrast
+- **System Respect**: Honors user's system preference when available
+
+
 ### �🏠 **Enhanced Property System**
 - **25 Diverse Properties** automatically seeded on startup
 - **Multiple Property Types**: Penthouses, Villas, Lofts, Studios, Townhouses, Offices, Beach Houses, and more
