@@ -1,0 +1,59 @@
+### Run the API locally first (dotnet run) then execute:
+POST http://localhost:5000/api/properties
+Content-Type: application/json
+
+{
+  "IdOwner": "owner-1",
+  "Name": "Ocean View Apartment",
+  "AddressProperty": "Cra 54 # 79-200, Barranquilla",
+  "PriceProperty": 350000000,
+  "Image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop"
+}
+
+###
+POST http://localhost:5000/api/properties
+Content-Type: application/json
+
+{
+  "IdOwner": "owner-2",
+  "Name": "Country House",
+  "AddressProperty": "Km 5 via al mar, Puerto Colombia",
+  "PriceProperty": 780000000,
+  "Image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop"
+}
+
+###
+POST http://localhost:5000/api/properties
+Content-Type: application/json
+
+{
+  "IdOwner": "seed-1",
+  "Name": "Downtown Loft",
+  "AddressProperty": "Calle 72 # 43-52, Barranquilla",
+  "PriceProperty": 520000000,
+  "Image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&h=400&fit=crop"
+}
+
+###
+POST http://localhost:5000/api/properties
+Content-Type: application/json
+
+{
+  "IdOwner": "owner-3",
+  "Name": "Modern Villa",
+  "AddressProperty": "Cra 52 # 84-15, Barranquilla",
+  "PriceProperty": 950000000,
+  "Image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop"
+}
+
+###
+POST http://localhost:5000/api/properties
+Content-Type: application/json
+
+{
+  "IdOwner": "owner-4",
+  "Name": "Cozy Studio",
+  "AddressProperty": "Calle 85 # 47-30, Barranquilla",
+  "PriceProperty": 280000000,
+  "Image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop"
+}

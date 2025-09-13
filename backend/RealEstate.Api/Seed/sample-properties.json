@@ -1,0 +1,16 @@
+[
+  {
+    "IdOwner": "owner-1",
+    "Name": "Ocean View Apartment",
+    "AddressProperty": "Cra 54 # 79-200, Barranquilla",
+    "PriceProperty": 350000000,
+    "Image": "https://picsum.photos/seed/sea/600/400"
+  },
+  {
+    "IdOwner": "owner-2",
+    "Name": "Country House",
+    "AddressProperty": "Km 5 via al mar, Puerto Colombia",
+    "PriceProperty": 780000000,
+    "Image": "https://picsum.photos/seed/country/600/400"
+  }
+]
