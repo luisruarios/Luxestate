@@ -30,7 +30,7 @@ const Navbar = () => {
               <BuildingOffice2Icon className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-display font-medium text-neutral-800 dark:text-neutral-100">
+              <h1 className="text-xl font-display font-medium text-neutral-800 dark:text-neutral-100 text-left">
                 Luxestate
               </h1>
               <p className="text-xs text-neutral-500 dark:text-neutral-400 -mt-1 tracking-wide">
