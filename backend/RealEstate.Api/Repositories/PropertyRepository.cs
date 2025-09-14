@@ -79,15 +79,10 @@ public class PropertyRepository : IPropertyRepository
             // Sort by created date (newest first) for better UX
             var sort = Builders<Property>.Sort.Descending(p => p.CreatedAt);
 
-            // Add projection to exclude sensitive data if needed
-            var options = new FindOptions<Property>
-            {
-                Sort = sort,
-                // Limit results for performance
-                Limit = 100
-            };
-
-            var results = await _collection.Find(filter, options).ToListAsync();
+            var results = await _collection.Find(filter)
+                .Sort(sort)
+                .Limit(100)
+                .ToListAsync();
 
             _logger.LogInformation("Retrieved {Count} properties with filters applied", results.Count);
             return results;
