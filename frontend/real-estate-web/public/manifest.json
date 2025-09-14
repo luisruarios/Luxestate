@@ -1,0 +1,26 @@
+{
+  "name": "Luxestate - Premium Real Estate",
+  "short_name": "Luxestate",
+  "description": "Discover luxury real estate properties with Luxestate. Browse premium homes, penthouses, and exclusive properties in prime locations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1f2937",
+  "theme_color": "#f97316",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["lifestyle", "business"],
+  "lang": "en",
+  "dir": "ltr"
+}

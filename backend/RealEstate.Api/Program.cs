@@ -5,16 +5,37 @@ using RealEstate.Api.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure Kestrel for Heroku deployment
+builder.WebHost.ConfigureKestrel(options =>
+{
+    var port = Environment.GetEnvironmentVariable("PORT");
+    if (!string.IsNullOrEmpty(port))
+    {
+        options.ListenAnyIP(int.Parse(port));
+    }
+});
+
 // Config
 builder.Services.Configure<MongoSettings>(builder.Configuration.GetSection("MongoSettings"));
 
-// CORS (allow Next.js dev)
+// CORS - Dynamic origins for production
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost",
-        p => p.WithOrigins("http://localhost:3000", "http://localhost:3001")
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "http://localhost:3000";
+        var allowedOrigins = new List<string>
+        {
+            "http://localhost:3000",
+            "http://localhost:3001",
+            frontendUrl
+        };
+
+        policy.WithOrigins(allowedOrigins.ToArray())
               .AllowAnyHeader()
-              .AllowAnyMethod());
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
 });
 
 // Services
@@ -41,7 +62,7 @@ using (var scope = app.Services.CreateScope())
     await seeder.SeedDataAsync();
 }
 
-app.UseCors("AllowLocalhost");
+app.UseCors("AllowFrontend");
 
 if (app.Environment.IsDevelopment())
 {

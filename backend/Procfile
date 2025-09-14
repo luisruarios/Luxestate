@@ -1,0 +1,1 @@
+web: cd RealEstate.Api && dotnet RealEstate.Api.dll --server.urls http://+:$PORT
