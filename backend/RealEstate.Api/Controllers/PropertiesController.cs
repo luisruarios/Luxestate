@@ -14,7 +14,7 @@ public class PropertiesController : ControllerBase
     private readonly ILogger<PropertiesController> _logger;
 
     public PropertiesController(
-        IPropertyService service, 
+        IPropertyService service,
         IValidator<CreatePropertyDto> createValidator,
         ILogger<PropertiesController> logger)
     {
@@ -35,9 +35,9 @@ public class PropertiesController : ControllerBase
     [ProducesResponseType(typeof(IEnumerable<PropertyDto>), 200)]
     [ProducesResponseType(500)]
     public async Task<ActionResult<IEnumerable<PropertyDto>>> Get(
-        [FromQuery] string? name, 
-        [FromQuery] string? address, 
-        [FromQuery] decimal? minPrice, 
+        [FromQuery] string? name,
+        [FromQuery] string? address,
+        [FromQuery] decimal? minPrice,
         [FromQuery] decimal? maxPrice)
     {
         try
@@ -46,7 +46,7 @@ public class PropertiesController : ControllerBase
                 name, address, minPrice, maxPrice);
 
             var results = await _service.GetAsync(name, address, minPrice, maxPrice);
-            
+
             _logger.LogInformation("Successfully retrieved {Count} properties", results.Count());
             return Ok(results);
         }
@@ -120,18 +120,18 @@ public class PropertiesController : ControllerBase
             var validation = await _createValidator.ValidateAsync(dto);
             if (!validation.IsValid)
             {
-                _logger.LogWarning("Validation failed for property creation: {Errors}", 
+                _logger.LogWarning("Validation failed for property creation: {Errors}",
                     string.Join(", ", validation.Errors.Select(e => e.ErrorMessage)));
-                
-                return BadRequest(new 
-                { 
+
+                return BadRequest(new
+                {
                     message = "Validation failed",
                     errors = validation.Errors.Select(e => new { field = e.PropertyName, error = e.ErrorMessage })
                 });
             }
 
             var created = await _service.CreateAsync(dto);
-            
+
             _logger.LogInformation("Successfully created property with id: {PropertyId}", created.Id);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }

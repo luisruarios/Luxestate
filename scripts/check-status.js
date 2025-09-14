@@ -9,7 +9,7 @@ function checkUrl(url, name) {
   return new Promise((resolve) => {
     const module = url.startsWith('https:') ? https : http;
     const startTime = Date.now();
-    
+
     const req = module.get(url, (res) => {
       const responseTime = Date.now() - startTime;
       const status = {
@@ -59,16 +59,16 @@ async function checkApplicationStatus() {
   ];
 
   const results = await Promise.all(checks);
-  
+
   results.forEach(result => {
     const statusIcon = result.ok ? '✅' : '❌';
     const statusText = result.ok ? 'OK' : 'FAILED';
-    
+
     console.log(`${statusIcon} ${result.name}: ${statusText}`);
     console.log(`   URL: ${result.url}`);
     console.log(`   Status: ${result.status}`);
     console.log(`   Response Time: ${result.responseTime}`);
-    
+
     if (result.error) {
       console.log(`   Error: ${result.error}`);
     }
@@ -76,7 +76,7 @@ async function checkApplicationStatus() {
   });
 
   const allOk = results.every(r => r.ok);
-  
+
   console.log('=====================================');
   console.log(`Overall Status: ${allOk ? '✅ ALL SYSTEMS OPERATIONAL' : '❌ SOME SYSTEMS DOWN'}`);
   console.log();
@@ -96,7 +96,7 @@ async function checkApplicationStatus() {
     console.log('   - Verify environment variables are configured');
     console.log('   - Check CORS configuration in backend');
   }
-  
+
   process.exit(allOk ? 0 : 1);
 }
 

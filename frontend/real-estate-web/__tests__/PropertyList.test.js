@@ -28,7 +28,7 @@ const createMockStore = (initialState = {}) => {
 describe('PropertyList Component', () => {
   test('renders empty state when no properties', () => {
     const store = createMockStore();
-    
+
     render(
       <Provider store={store}>
         <PropertyList />
@@ -63,11 +63,11 @@ describe('PropertyList Component', () => {
       }
     ];
 
-    const store = createMockStore({ 
+    const store = createMockStore({
       properties: mockProperties,
       filteredProperties: mockProperties
     });
-    
+
     render(
       <Provider store={store}>
         <PropertyList />
@@ -84,7 +84,7 @@ describe('PropertyList Component', () => {
 
   test('shows loading state', () => {
     const store = createMockStore({ loading: true });
-    
+
     render(
       <Provider store={store}>
         <PropertyList />
@@ -96,7 +96,7 @@ describe('PropertyList Component', () => {
 
   test('shows error state with retry button', () => {
     const store = createMockStore({ error: 'Network error' });
-    
+
     render(
       <Provider store={store}>
         <PropertyList />
@@ -118,11 +118,11 @@ describe('PropertyList Component', () => {
       images: ['image.jpg']
     };
 
-    const store = createMockStore({ 
+    const store = createMockStore({
       properties: [mockProperty],
       filteredProperties: [mockProperty]
     });
-    
+
     render(
       <Provider store={store}>
         <PropertyList />

@@ -6,7 +6,7 @@ A modern, full-stack real estate application built with **Next.js 14**, **ASP.NE
 
 ### Prerequisites
 - **Node.js** 18+
-- **.NET 8.0** SDK  
+- **.NET 8.0** SDK
 - **Git**
 
 ### Setup Instructions
@@ -21,8 +21,8 @@ A modern, full-stack real estate application built with **Next.js 14**, **ASP.NE
    ```bash
    # Windows
    setup.bat
-   
-   # Linux/macOS  
+
+   # Linux/macOS
    chmod +x setup.sh && ./setup.sh
    ```
 
@@ -94,7 +94,7 @@ NEXT_PUBLIC_APP_ENV=development
 ## ✨ Key Features
 
 - 🔍 **Advanced Property Search** with filtering
-- 📱 **Responsive Design** for all devices  
+- 📱 **Responsive Design** for all devices
 - 🏗️ **Clean Architecture** with separation of concerns
 - � **Type Safety** with TypeScript
 - 📊 **Unit Testing** coverage
@@ -132,14 +132,14 @@ NEXT_PUBLIC_APP_ENV=development
 
 ## 📝 Best Practices
 
-✅ **Clean Code** principles  
-✅ **SOLID** design patterns  
-✅ **Error Handling** with logging  
-✅ **Input Validation** client & server  
-✅ **Security** headers and CORS  
-✅ **Performance** optimization  
-✅ **Responsive** design  
-✅ **Accessibility** compliance  
+✅ **Clean Code** principles
+✅ **SOLID** design patterns
+✅ **Error Handling** with logging
+✅ **Input Validation** client & server
+✅ **Security** headers and CORS
+✅ **Performance** optimization
+✅ **Responsive** design
+✅ **Accessibility** compliance
 
 ## 🧪 Testing
 
@@ -151,7 +151,7 @@ NEXT_PUBLIC_APP_ENV=development
 ## 📚 Documentation
 
 - [Setup Guide](docs/SETUP.md)
-- [Architecture Overview](docs/ARCHITECTURE.md)  
+- [Architecture Overview](docs/ARCHITECTURE.md)
 - [API Reference](docs/API.md)
 
 ## 🆘 Support

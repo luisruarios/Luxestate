@@ -11,7 +11,7 @@ if ! command -v node &> /dev/null; then
     exit 1
 fi
 
-# Check if .NET is installed  
+# Check if .NET is installed
 if ! command -v dotnet &> /dev/null; then
     echo "❌ .NET is not installed. Please install .NET 8.0+ first."
     exit 1

@@ -33,12 +33,12 @@ public class PropertyServiceTests
         // Arrange
         var properties = new List<Property>
         {
-            new Property 
-            { 
-                Id = "1", 
-                Name = "Luxury Penthouse", 
-                AddressProperty = "Bogotá", 
-                IdOwner = "owner1", 
+            new Property
+            {
+                Id = "1",
+                Name = "Luxury Penthouse",
+                AddressProperty = "Bogotá",
+                IdOwner = "owner1",
                 PriceProperty = 500000,
                 Bedrooms = 3,
                 Bathrooms = 2,
@@ -48,12 +48,12 @@ public class PropertyServiceTests
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             },
-            new Property 
-            { 
-                Id = "2", 
-                Name = "Modern Villa", 
-                AddressProperty = "Medellín", 
-                IdOwner = "owner2", 
+            new Property
+            {
+                Id = "2",
+                Name = "Modern Villa",
+                AddressProperty = "Medellín",
+                IdOwner = "owner2",
                 PriceProperty = 1000000,
                 Bedrooms = 4,
                 Bathrooms = 3,
@@ -235,11 +235,11 @@ public class PropertyServiceTests
         // Arrange
         var properties = new List<Property>
         {
-            new Property 
-            { 
-                Id = "1", 
-                Name = "Property 1", 
-                AddressProperty = "Address 1", 
+            new Property
+            {
+                Id = "1",
+                Name = "Property 1",
+                AddressProperty = "Address 1",
                 IdOwner = "owner1",
                 IsAvailable = true,
                 CreatedAt = DateTime.UtcNow,

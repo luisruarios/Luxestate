@@ -35,7 +35,7 @@ describe('Property Filters', () => {
 
   test('renders search filters', () => {
     const store = createMockStore();
-    
+
     render(
       <Provider store={store}>
         <Home />
@@ -50,7 +50,7 @@ describe('Property Filters', () => {
 
   test('updates search term when typing in name filter', async () => {
     const store = createMockStore();
-    
+
     render(
       <Provider store={store}>
         <Home />
@@ -65,7 +65,7 @@ describe('Property Filters', () => {
 
   test('updates address filter when typing', async () => {
     const store = createMockStore();
-    
+
     render(
       <Provider store={store}>
         <Home />
@@ -80,7 +80,7 @@ describe('Property Filters', () => {
 
   test('updates price filters when typing', async () => {
     const store = createMockStore();
-    
+
     render(
       <Provider store={store}>
         <Home />
@@ -99,7 +99,7 @@ describe('Property Filters', () => {
 
   test('shows loading state', () => {
     const store = createMockStore({ loading: true });
-    
+
     render(
       <Provider store={store}>
         <Home />
@@ -111,7 +111,7 @@ describe('Property Filters', () => {
 
   test('shows error state', () => {
     const store = createMockStore({ error: 'Failed to fetch properties' });
-    
+
     render(
       <Provider store={store}>
         <Home />
@@ -147,11 +147,11 @@ describe('Property Filters', () => {
       }
     ];
 
-    const store = createMockStore({ 
+    const store = createMockStore({
       properties: mockProperties,
       filteredProperties: mockProperties
     });
-    
+
     render(
       <Provider store={store}>
         <Home />

@@ -19,12 +19,12 @@ public class PropertyService : IPropertyService
     {
         try
         {
-            _logger.LogInformation("Fetching properties with filters: name={Name}, address={Address}, minPrice={MinPrice}, maxPrice={MaxPrice}", 
+            _logger.LogInformation("Fetching properties with filters: name={Name}, address={Address}, minPrice={MinPrice}, maxPrice={MaxPrice}",
                 name, address, minPrice, maxPrice);
-                
+
             var entities = await _repo.GetAsync(name, address, minPrice, maxPrice);
             var result = entities.Select(MapToDto).ToList();
-            
+
             _logger.LogInformation("Successfully fetched {Count} properties", result.Count);
             return result;
         }
@@ -46,7 +46,7 @@ public class PropertyService : IPropertyService
             }
 
             _logger.LogInformation("Fetching property with id: {PropertyId}", id);
-            
+
             var entity = await _repo.GetByIdAsync(id);
             if (entity == null)
             {
@@ -70,7 +70,7 @@ public class PropertyService : IPropertyService
         try
         {
             ArgumentNullException.ThrowIfNull(dto);
-            
+
             _logger.LogInformation("Creating new property: {PropertyName}", dto.Name);
 
             var entity = new Property
@@ -106,7 +106,7 @@ public class PropertyService : IPropertyService
 
             var created = await _repo.CreateAsync(entity);
             var result = MapToDto(created);
-            
+
             _logger.LogInformation("Successfully created property with id: {PropertyId}", result.Id);
             return result;
         }

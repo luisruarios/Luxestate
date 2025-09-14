@@ -19,8 +19,8 @@ public class PropertyRepository : IPropertyRepository
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
             _collection = database.GetCollection<Property>(settings.CollectionName);
-            
-            _logger.LogInformation("Connected to MongoDB database: {DatabaseName}, collection: {CollectionName}", 
+
+            _logger.LogInformation("Connected to MongoDB database: {DatabaseName}, collection: {CollectionName}",
                 settings.DatabaseName, settings.CollectionName);
         }
         catch (Exception ex)
@@ -88,7 +88,7 @@ public class PropertyRepository : IPropertyRepository
             };
 
             var results = await _collection.Find(filter, options).ToListAsync();
-            
+
             _logger.LogInformation("Retrieved {Count} properties with filters applied", results.Count);
             return results;
         }
@@ -110,7 +110,7 @@ public class PropertyRepository : IPropertyRepository
             }
 
             var result = await _collection.Find(p => p.Id == id).FirstOrDefaultAsync();
-            
+
             if (result == null)
             {
                 _logger.LogWarning("Property with id {PropertyId} not found", id);
@@ -137,7 +137,7 @@ public class PropertyRepository : IPropertyRepository
             property.UpdatedAt = DateTime.UtcNow;
 
             await _collection.InsertOneAsync(property);
-            
+
             _logger.LogInformation("Successfully created property with id: {PropertyId}", property.Id);
             return property;
         }
