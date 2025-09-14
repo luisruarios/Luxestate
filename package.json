@@ -1,0 +1,44 @@
+{
+  "name": "luxestate-real-estate",
+  "version": "1.0.0",
+  "description": "A modern real estate application with React frontend and .NET Core backend",
+  "scripts": {
+    "setup": "node setup.js",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend/real-estate-web && npm run dev",
+    "dev:backend": "cd backend/RealEstate.Api && dotnet run",
+    "build:frontend": "cd frontend/real-estate-web && npm run build",
+    "build:backend": "cd backend/RealEstate.Api && dotnet build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "test:frontend": "cd frontend/real-estate-web && npm test",
+    "test:backend": "cd tests/RealEstate.Tests && dotnet test",
+    "test": "npm run test:backend && npm run test:frontend",
+    "start:frontend": "cd frontend/real-estate-web && npm start",
+    "start:backend": "cd backend/RealEstate.Api && dotnet run",
+    "clean": "cd frontend/real-estate-web && npm run clean && cd ../../backend/RealEstate.Api && dotnet clean",
+    "check-status": "node scripts/check-status.js",
+    "deploy:frontend": "cd frontend/real-estate-web && npm run build && git subtree push --prefix=frontend/real-estate-web heroku main",
+    "deploy:backend": "cd backend && git subtree push --prefix=backend heroku main"
+  },
+  "keywords": [
+    "real-estate",
+    "react",
+    "nextjs",
+    "dotnet",
+    "mongodb",
+    "typescript"
+  ],
+  "author": "Luxestate Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luisruarios/Luxestate.git"
+  }
+}

@@ -50,6 +50,22 @@ const initialState: PropertiesState = {
   searchTerm: '',
 };
 
+// Configuration
+const getApiUrl = () => {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (!apiUrl) {
+    if (typeof window !== 'undefined') {
+      // Client-side fallback
+      return window.location.hostname === 'localhost' 
+        ? 'http://localhost:5000' 
+        : 'https://luxestate-api-dbbf54d6d2c4.herokuapp.com';
+    }
+    // Server-side fallback
+    return 'http://localhost:5000';
+  }
+  return apiUrl;
+};
+
 // Async thunks
 export const fetchProperties = createAsyncThunk(
   'properties/fetchProperties',
@@ -60,7 +76,8 @@ export const fetchProperties = createAsyncThunk(
     if (filters?.minPrice) queryParams.append('minPrice', filters.minPrice.toString());
     if (filters?.maxPrice) queryParams.append('maxPrice', filters.maxPrice.toString());
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/properties?${queryParams}`);
+    const apiUrl = getApiUrl();
+    const response = await fetch(`${apiUrl}/api/properties?${queryParams}`);
     if (!response.ok) {
       throw new Error('Failed to fetch properties');
     }
@@ -71,7 +88,8 @@ export const fetchProperties = createAsyncThunk(
 export const fetchPropertyById = createAsyncThunk(
   'properties/fetchPropertyById',
   async (id: string) => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/properties/${id}`);
+    const apiUrl = getApiUrl();
+    const response = await fetch(`${apiUrl}/api/properties/${id}`);
     if (!response.ok) {
       throw new Error('Failed to fetch property');
     }

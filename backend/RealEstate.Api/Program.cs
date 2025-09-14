@@ -18,20 +18,34 @@ builder.WebHost.ConfigureKestrel(options =>
 // Config
 builder.Services.Configure<MongoSettings>(builder.Configuration.GetSection("MongoSettings"));
 
-// CORS - Dynamic origins for production
+// CORS - Dynamic origins for production and development
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "http://localhost:3000";
+        var corsOrigins = Environment.GetEnvironmentVariable("CORS_ORIGINS");
         var allowedOrigins = new List<string>
         {
             "http://localhost:3000",
             "http://localhost:3001",
-            frontendUrl
+            "http://127.0.0.1:3000"
         };
 
-        policy.WithOrigins(allowedOrigins.ToArray())
+        // Add origins from environment variable (comma-separated)
+        if (!string.IsNullOrEmpty(corsOrigins))
+        {
+            allowedOrigins.AddRange(corsOrigins.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(origin => origin.Trim()));
+        }
+
+        // Add from appsettings.json configuration
+        var configOrigins = builder.Configuration.GetSection("CorsOrigins").Get<string[]>();
+        if (configOrigins != null)
+        {
+            allowedOrigins.AddRange(configOrigins);
+        }
+
+        policy.WithOrigins(allowedOrigins.Distinct().ToArray())
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();

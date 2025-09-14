@@ -1,200 +1,166 @@
-# Luxestate — Premium Real Estate Platform
+# 🏠 Luxestate - Premium Real Estate Platform
 
-A comprehensive luxury real estate platform featuring automated property seeding, interactive property browsing, modern responsive design, and complete accessibility compliance. Built with premium branding and production-ready deployment capabilities.
+A modern, full-stack real estate application built with **Next.js 14**, **ASP.NET Core 8**, and **MongoDB**. Features responsive design, advanced property filtering, and production-ready deployment.
 
 ## 🚀 Quick Start
 
-1. **Start MongoDB**: `docker compose up -d` in `/backend`
-2. **Start API**: `dotnet run` in `/backend/RealEstate.Api`
-3. **Start Frontend**: `npm run dev` in `/frontend/real-estate-web`
-4. **Visit**: Open [http://localhost:3000](http://localhost:3000) to view **Luxestate**
+### Prerequisites
+- **Node.js** 18+
+- **.NET 8.0** SDK  
+- **Git**
 
-## ✨ Features & Capabilities
+### Setup Instructions
 
-### � **Professional Branding**
-- **Luxestate Brand**: Premium, memorable brand identity
-- **Professional Logo**: Custom building icon with gradient design
-- **Premium Typography**: Lato font family for professional appearance
-- **Orange Theme**: Modern orange accent color (#f97316) with complementary palette
-- **Dark Mode Default**: Sophisticated dark theme as primary experience
-- **Contact Information**: Professional contact details (contact@luxestate.com)
+1. **Clone and setup**
+   ```bash
+   git clone <repository-url>
+   cd real-estate-tech-test
+   ```
 
+2. **Run setup script**
+   ```bash
+   # Windows
+   setup.bat
+   
+   # Linux/macOS  
+   chmod +x setup.sh && ./setup.sh
+   ```
 
-### 🛠 **Technical Stack**
-- **Backend**: .NET 8, MongoDB, FluentValidation, Swagger/OpenAPI
-- **Frontend**: Next.js 14.2.5, React 18.2.0, Tailwind CSS 3.4.0, Framer Motion 10.0.0
-- **State Management**: Redux Toolkit 2.0.0 for property filtering and application state
-- **Database**: MongoDB with Docker containerization
-- **Styling**: Tailwind CSS with custom utilities, responsive design, and dark mode
-- **Icons**: Heroicons and Lucide React for consistent professional iconography
-- **Fonts**: Lato font family for professional typography
-- **Animation**: Framer Motion with hardware acceleration and performance optimization
+3. **Start development servers**
+   ```bash
+   npm run dev
+   ```
 
+4. **Access the application**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
+   - API Docs: http://localhost:5000/swagger
 
-### 🌙 **Theme System**
-- **Dark Mode Default**: Professional dark theme as primary experience
-- **Light Mode Support**: Toggle between dark and light themes
-- **Theme Persistence**: User preference saved across sessions
-- **Smooth Transitions**: Animated theme switching with proper contrast
-- **System Respect**: Honors user's system preference when available
+## 🎯 Available Commands
 
+```bash
+# Development
+npm run dev              # Start both frontend and backend
+npm run dev:frontend     # Start frontend only
+npm run dev:backend      # Start backend only
 
-### �🏠 **Enhanced Property System**
-- **25 Diverse Properties** automatically seeded on startup
-- **Multiple Property Types**: Penthouses, Villas, Lofts, Studios, Townhouses, Offices, Beach Houses, and more
-- **Rich Property Details**: Multiple images (3-10 per property), amenities with icons, descriptions
-- **Flexible Pricing**: Both sale and rental prices supported with Colombian Peso formatting
-- **Professional Photography**: Curated Unsplash images for realistic property showcase
-- **Amenity Icons**: Professional icons for each amenity (WiFi, Pool, Gym, Parking, etc.)
-- **Capitalized Amenities**: Properly formatted amenity names for professional display
+# Building
+npm run build           # Build both applications
+npm run test            # Run all tests
 
-### 🎨 **Modern Frontend Experience**
-- **Mobile-First Design**: Responsive design optimized for all devices (320px to 4K)
-- **Interactive Property Cards**: Enhanced hover effects with hardware acceleration
-- **Clickable Cards**: Entire property cards are clickable for better UX
-- **Advanced Filtering**: Filter by name, address, and price range with live updates
-- **Quick Preview Modals**: Essential property info with focus management
-- **Individual Property Pages**: Dedicated pages with comprehensive details and mobile optimization
-- **Image Slider**: Navigate through multiple property photos with smooth transitions
-- **Load More**: Pagination with "Load More" functionality for better performance
-- **Professional Animations**: Optimized Framer Motion animations with reduced complexity
+# Deployment
+npm run deploy:frontend # Deploy frontend to Heroku
+npm run deploy:backend  # Deploy backend to Heroku
+```
 
-### 🖼️ **Image Gallery System**
-- **Interactive Slider**: Navigation arrows, dot indicators, and thumbnail grid
-- **Smooth Animations**: Framer Motion powered transitions with performance optimization
-- **Responsive Images**: Optimized for all device sizes with Next.js Image component
-- **Fallback Handling**: Graceful error handling for missing images
-- **Mobile Gestures**: Touch-friendly navigation with proper touch targets (44px minimum)
-- **Darkened Overlays**: Enhanced text readability over images
-- **Hardware Acceleration**: GPU-accelerated transforms for smooth performance
+## � Project Structure
 
-### 👥 **Owner Contact Management**
-- **Complete Owner Profiles**: Name, email, phone, company information
-- **Clickable Contact Info**: Direct phone calls and email composition
-- **Professional Display**: Enhanced contact cards with proper formatting
-- **Mobile Optimization**: Touch-friendly contact buttons with proper spacing
+```
+real-estate-tech-test/
+├── frontend/real-estate-web/    # Next.js React app
+│   ├── app/                     # App Router pages
+│   ├── components/              # UI components
+│   ├── store/                   # Redux state
+│   └── __tests__/               # Frontend tests
+├── backend/RealEstate.Api/      # ASP.NET Core API
+│   ├── Controllers/             # API endpoints
+│   ├── Services/                # Business logic
+│   ├── Repositories/            # Data access
+│   └── Domain/                  # Entities
+├── tests/RealEstate.Tests/      # Backend tests
+└── docs/                        # Documentation
+```
 
-### ♿ **Accessibility Compliance (WCAG 2.1 AA)**
-- **Keyboard Navigation**: Full keyboard support with visible focus indicators
-- **Screen Reader Support**: Comprehensive ARIA labels, roles, and descriptions
-- **Color Contrast**: 4.5:1 ratio compliance for all text elements
-- **Focus Management**: Proper focus traps in modals and logical tab order
-- **Semantic HTML**: Proper heading hierarchy and landmark structure
-- **Mobile Accessibility**: 44px minimum touch targets and responsive focus indicators
-- **Alternative Text**: Descriptive alt text for all images with context
-- **Skip Navigation**: Semantic structure for assistive technology navigation
+## 🌍 Environment Configuration
 
-### 🔍 **SEO Optimization**
-- **Complete Meta Tags**: Title, description, keywords, author, and viewport
-- **Open Graph Integration**: Facebook and social media sharing optimization
-- **Twitter Cards**: Enhanced Twitter sharing with large image previews
-- **Structured Data**: JSON-LD schema for real estate listings and business info
-- **Dynamic Sitemap**: XML sitemap generation at `/sitemap.xml`
-- **Robots.txt**: SEO-friendly crawling directives at `/robots.txt`
-- **Canonical URLs**: Proper URL structure for search engine optimization
-- **Page-Specific SEO**: Dynamic meta tags for individual property pages
+### Frontend (.env.local)
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_APP_ENV=development
+```
 
+### Backend (appsettings.Development.json)
+```json
+{
+  "MongoSettings": {
+    "ConnectionString": "mongodb://localhost:27017",
+    "DatabaseName": "luxestate",
+    "CollectionName": "Properties"
+  },
+  "CorsOrigins": ["http://localhost:3000"]
+}
+```
 
-### 🔄 **Automated Data Seeding**
-- **Zero Manual Setup**: Properties and owners automatically created on first run
-- **Fresh Data**: Database cleared and reseeded with enhanced data on each startup
-- **Colombian Market**: Realistic addresses, pricing, and contact information for Colombian real estate
-- **Diverse Property Types**: Wide range of property categories and price points
+## ✨ Key Features
 
-### 🏢 **Property Categories**
-- **Luxury Properties**: Oceanfront penthouses, modern villas with pools
-- **Mid-Range Options**: Downtown lofts, beachside apartments, garden complexes
-- **Affordable Housing**: Studios, shared apartments, family homes
-- **Commercial Spaces**: Modern offices, business suites
-- **Vacation Properties**: Beach houses, waterfront cottages
-- **Unique Properties**: Eco-friendly homes, artist warehouses, historic colonial homes, retirement communities
+- 🔍 **Advanced Property Search** with filtering
+- 📱 **Responsive Design** for all devices  
+- 🏗️ **Clean Architecture** with separation of concerns
+- � **Type Safety** with TypeScript
+- 📊 **Unit Testing** coverage
+- 🌐 **PWA Support** with manifest
+- 📖 **API Documentation** with Swagger
+- 🚀 **Production Ready** deployment
 
+## 🏗️ Architecture
 
-### 🌐 **Navigation & Routing**
-- **Dynamic Routes**: SEO-friendly URLs for individual properties (`/property/[id]`)
-- **Back Navigation**: Intuitive navigation between property list and detail views
-- **Modal Quick View**: Fast property preview without leaving main page
-- **Responsive Header**: Clean navigation with property title and address
-- **Breadcrumb Navigation**: Clear navigation hierarchy for better UX
-- **Mobile Navigation**: Touch-friendly navigation with proper spacing
+### Backend (ASP.NET Core 8)
+- Clean Architecture with Repository pattern
+- MongoDB with optimized queries
+- FluentValidation for input validation
+- Comprehensive logging and error handling
+- CORS configuration for cross-origin requests
 
-### 🚀 **Deployment & Production Ready**
-- **Heroku Optimized**: Complete deployment guide and configuration
-- **Environment Configuration**: Proper environment variable setup
-- **Build Optimization**: Next.js standalone output and image optimization
-- **Git Integration**: Comprehensive .gitignore for deployment files
-- **Production Build**: Tested and verified production build process
-- **Performance Optimization**: Lazy loading, code splitting, and optimized bundles
+### Frontend (Next.js 14)
+- App Router for modern routing
+- Redux Toolkit for state management
+- Tailwind CSS for styling
+- TypeScript for type safety
+- PWA features for app-like experience
 
-### 📱 **Mobile Experience**
-- **Mobile-First Design**: Designed primarily for mobile devices
-- **Touch Gestures**: Swipe navigation and touch-friendly interactions
-- **Responsive Breakpoints**: Optimized for phones, tablets, and desktops
-- **Fast Loading**: Optimized images and lazy loading for mobile networks
-- **Offline Handling**: Graceful degradation for poor network conditions
+## � Deployment
 
-### 🔧 **Performance Features**
-- **Hardware Acceleration**: GPU-accelerated animations and transforms
-- **Lazy Loading**: Components and images loaded on demand
-- **Code Splitting**: Automatic code splitting with Next.js
-- **Image Optimization**: Next.js Image component with responsive loading
-- **Bundle Analysis**: Optimized bundle size and performance metrics
-- **Caching**: Proper caching strategies for production deployment
+### Current Production URLs
+- **Frontend**: https://luxestate-web-d88c31e0b763.herokuapp.com
+- **Backend**: https://luxestate-api-dbbf54d6d2c4.herokuapp.com
 
-## 📚 **Documentation**
+### Heroku Deployment
+- Configured for automatic deployment
+- Environment variables managed through Heroku
+- MongoDB Atlas integration
+- Build optimization for production
 
-- **Setup Instructions**: `docs/SETUP.md`
-- **Architecture Overview**: `docs/ARCHITECTURE.md`
-- **API Reference**: `docs/API.md`
-- **Accessibility Report**: `ACCESSIBILITY-REPORT.md` - WCAG 2.1 compliance documentation
+## 📝 Best Practices
 
-## 🏃‍♂️ **Getting Started**
+✅ **Clean Code** principles  
+✅ **SOLID** design patterns  
+✅ **Error Handling** with logging  
+✅ **Input Validation** client & server  
+✅ **Security** headers and CORS  
+✅ **Performance** optimization  
+✅ **Responsive** design  
+✅ **Accessibility** compliance  
 
-The **Luxestate** application is designed for immediate use with no manual data entry required. Simply follow the quick start steps above and you'll have a fully populated luxury real estate platform with 25 diverse properties ready for browsing.
+## 🧪 Testing
 
-### **Frontend Features Available:**
-- **Browse Properties**: Responsive grid layout with professional property cards
-- **Advanced Filtering**: Filter by name, address, or price range with live updates
-- **Quick Preview**: Click any property card to see a quick preview modal with focus management
-- **Full Details**: Click "View Full Details" to navigate to individual property pages
-- **Image Gallery**: View property image slider with navigation controls and thumbnails
-- **Contact Owners**: Direct phone and email links for property owners
-- **Theme Toggle**: Switch between dark and light themes with persistence
-- **Mobile Optimized**: Fully responsive design optimized for all devices
-- **Accessibility**: Full keyboard navigation and screen reader support
-- **Load More**: Pagination with smooth loading for better performance
+- **Backend**: NUnit with comprehensive coverage
+- **Frontend**: Jest with React Testing Library
+- **Integration**: API endpoint testing
+- **E2E**: Component and user flow testing
 
-### **Backend Features Available:**
-- **Property API**: RESTful API with comprehensive property endpoints
-- **Automated Seeding**: 25 diverse properties automatically created on startup
-- **MongoDB Integration**: Robust database with proper indexing and validation
-- **Swagger Documentation**: Interactive API documentation at `/swagger`
-- **Data Validation**: FluentValidation for robust data integrity
-- **CORS Configuration**: Properly configured for frontend integration
+## 📚 Documentation
 
-## 🎯 **Key Improvements & Features**
+- [Setup Guide](docs/SETUP.md)
+- [Architecture Overview](docs/ARCHITECTURE.md)  
+- [API Reference](docs/API.md)
 
-### **✅ Recent Enhancements:**
-- **Professional Branding**: Rebranded to "Luxestate" with premium identity
-- **WCAG 2.1 AA Compliance**: Full accessibility compliance with comprehensive testing
-- **SEO Optimization**: Complete meta tags, structured data, sitemap, and robots.txt
-- **Mobile Optimization**: Enhanced mobile experience with proper touch targets
-- **Performance Optimization**: Hardware acceleration and optimized animations
-- **Dark Theme Default**: Professional dark mode as primary experience
-- **Deployment Ready**: Complete Heroku deployment configuration and guides
-- **Production Build**: Tested and optimized for production deployment
-- **Enhanced UX**: Clickable property cards, improved modal experience, better navigation
+## 🆘 Support
 
-### **🛡️ Quality Assurance:**
-- **Build Tested**: No compilation errors or warnings
-- **Accessibility Tested**: WCAG 2.1 AA compliance verified
-- **Mobile Tested**: Responsive design tested across devices
-- **Performance Tested**: Optimized loading and smooth animations
-- **SEO Tested**: Search engine optimization verified
-
-
-**Live Demo URL**: ``
+For questions or issues:
+- 📖 Check the [docs/](docs/) folder
+- 🐛 Create an issue in the repository
+- 📧 Contact: support@luxestate.com
 
 ---
 
-**🏆 Luxestate** - Where Premium Real Estate Meets Modern Technology
+**Luxestate** - *Discover your dream property* 🏡
