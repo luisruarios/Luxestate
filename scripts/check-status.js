@@ -2,8 +2,8 @@ const https = require('https');
 const http = require('http');
 
 // Configuration
-const FRONTEND_URL = process.env.FRONTEND_URL || 'https://luxestate-web-d88c31e0b763.herokuapp.com';
-const BACKEND_URL = process.env.BACKEND_URL || 'https://luxestate-api-dbbf54d6d2c4.herokuapp.com';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000';
 
 function checkUrl(url, name) {
   return new Promise((resolve) => {

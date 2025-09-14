@@ -4,12 +4,16 @@ A modern, full-stack real estate application built with **Next.js 14**, **ASP.NE
 
 ## 🚀 Quick Start
 
+### For New Developers
+**📖 Complete Setup Guide:** See [DEVELOPMENT.md](./DEVELOPMENT.md) for detailed instructions
+
 ### Prerequisites
 - **Node.js** 18+
 - **.NET 8.0** SDK
 - **Git**
+- **MongoDB Atlas** account (free tier available)
 
-### Setup Instructions
+### Quick Setup
 
 1. **Clone and setup**
    ```bash
@@ -17,22 +21,35 @@ A modern, full-stack real estate application built with **Next.js 14**, **ASP.NE
    cd real-estate-tech-test
    ```
 
-2. **Run setup script**
+2. **Configure environment**
    ```bash
-   # Windows
-   setup.bat
+   # Copy environment templates
+   cp .env.example .env
+   cp frontend/real-estate-web/.env.production.example frontend/real-estate-web/.env.local
 
-   # Linux/macOS
-   chmod +x setup.sh && ./setup.sh
+   # Edit .env with your MongoDB credentials
    ```
 
 3. **Start development servers**
    ```bash
-   npm run dev
+   # Backend (Terminal 1)
+   cd backend/RealEstate.Api
+   dotnet run
+
+   # Frontend (Terminal 2)
+   cd frontend/real-estate-web
+   npm install && npm run dev
    ```
 
-4. **Access the application**
+4. **Verify setup**
+   ```bash
+   # Check if everything is working
+   node scripts/check-status.js
+   ```
+
+5. **Access the application**
    - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
    - Backend API: http://localhost:5000
    - API Docs: http://localhost:5000/swagger
 
@@ -122,7 +139,7 @@ NEXT_PUBLIC_APP_ENV=development
 
 ### Current Production URLs
 - **Frontend**: https://luxestate-web-d88c31e0b763.herokuapp.com
-- **Backend**: https://luxestate-api-dbbf54d6d2c4.herokuapp.com
+- **Backend**: https://luxestate-api-a7544538b706.herokuapp.com
 
 ### Heroku Deployment
 - Configured for automatic deployment
@@ -150,9 +167,21 @@ NEXT_PUBLIC_APP_ENV=development
 
 ## 📚 Documentation
 
-- [Setup Guide](docs/SETUP.md)
-- [Architecture Overview](docs/ARCHITECTURE.md)
-- [API Reference](docs/API.md)
+- [Development Setup](DEVELOPMENT.md) - Quick start for new developers
+- [Setup Guide](docs/SETUP.md) - Complete configuration guide
+- [Architecture Overview](docs/ARCHITECTURE.md) - System design and structure
+- [API Reference](docs/API.md) - Backend API documentation
+- [CORS Configuration](docs/CORS-GUIDE.md) - CORS setup and troubleshooting
+
+## 🔧 Scripts
+
+```bash
+# Development environment check
+node scripts/check-status.js
+
+# Production deployment check
+node scripts/check-production.js
+```
 
 ## 🆘 Support
 

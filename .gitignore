@@ -15,7 +15,7 @@
 /**/.env*
 !/**/.env.example
 !/**/.env.development
-!/**/.env.production
+!/**/.env.production.example
 
 # Personal deployment files (exclude from repository)
 DEPLOYMENT.md
