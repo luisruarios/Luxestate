@@ -1,96 +1,79 @@
 # Dependencies
-/**/node_modules/
-/**/.pnp
-/**/.pnp.js
+node_modules/
+.pnp
+.pnp.js
 
 # Build outputs
-/**/bin/
-/**/obj/
-/**/.next/
-/**/out/
-/**/build/
-/**/dist/
+.next/
+out/
+build/
+dist/
+bin/
+obj/
 
-# Environment files
-/**/.env*
-!/**/.env.example
-!/**/.env.development
-!/**/.env.production.example
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
 
-# Personal deployment files (exclude from repository)
-DEPLOYMENT.md
-DEPLOYMENT-CHECKLIST.md
-Dockerfile
-docker-compose.override.yml
-.dockerignore
-heroku.yml
-setup-deployment.sh
-deploy.sh
+# Keep environment templates
+!.env.example
 
-# Heroku deployment files (personal)
-.heroku/
-.git/heroku/
-*.herokuapp.com
-
-# IDE/Editor files
-/**/.DS_Store
-/**/.vscode/
-/**/.idea/
-/**/*.swp
-/**/*.swo
-/**/.suo
-/**/*.user
-/**/*.userprefs
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.suo
+*.user
+*.userprefs
 
 # Logs
-/**/logs/
-/**/*.log
-/**/npm-debug.log*
-/**/yarn-debug.log*
-/**/yarn-error.log*
-/**/lerna-debug.log*
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
 # Runtime data
-/**/pids/
-/**/*.pid
-/**/*.seed
-/**/*.pid.lock
+pids/
+*.pid
+*.seed
+*.pid.lock
 
 # Coverage directory used by tools like istanbul
-/**/coverage/
-/**/.nyc_output/
+coverage/
+.nyc_output/
 
 # Cache directories
-/**/.cache/
-/**/.temp/
-/**/.tmp/
-/**/.parcel-cache/
-/**/node_modules/.cache/
-
-# Test coverage
-/**/coverage/
-/**/.coverage/
+.cache/
+.temp/
+.tmp/
+.parcel-cache/
+node_modules/.cache/
 
 # Database files
-/**/*.db
-/**/*.sqlite
-/**/*.sqlite3
+*.db
+*.sqlite
+*.sqlite3
 
 # OS generated files
-/**/Thumbs.db
-/**/*.tmp
-/**/.DS_Store
+Thumbs.db
+.DS_Store
 
 # Package manager files
-/**/package-lock.json
-/**/yarn.lock
-/**/pnpm-lock.yaml
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # Backup files
-/**/*.bak
-/**/*.backup
+*.bak
+*.backup
 
-# Personal configuration files
-.personal/
-personal-config/
-local-settings/
+# Personal deployment files (keep private)
+deployment-notes.md
+heroku-deploy.md
+.deployment/

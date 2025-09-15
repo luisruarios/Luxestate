@@ -5,14 +5,19 @@ using RealEstate.Api.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure Kestrel for Heroku deployment
+// Configure Kestrel for both local development and Heroku deployment
 builder.WebHost.ConfigureKestrel(options =>
 {
     var port = Environment.GetEnvironmentVariable("PORT");
-    if (!string.IsNullOrEmpty(port))
+    var aspNetCoreUrls = Environment.GetEnvironmentVariable("ASPNETCORE_URLS");
+
+    // Production deployment (Heroku) - use PORT environment variable
+    if (!string.IsNullOrEmpty(port) && string.IsNullOrEmpty(aspNetCoreUrls))
     {
         options.ListenAnyIP(int.Parse(port));
     }
+    // Local development - use ASPNETCORE_URLS or default to 5000
+    // This ensures localhost:5000 works for local development
 });
 
 // Config

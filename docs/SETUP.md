@@ -54,8 +54,6 @@ Once the application is running, you can:
 ## CORS Configuration
 The API is configured to accept requests from both `localhost:3000` and `localhost:3001` to accommodate different Next.js development server ports.
 
-For detailed CORS configuration and troubleshooting, see [CORS-GUIDE.md](./CORS-GUIDE.md).
 
 **Quick Setup:**
 - Development: CORS automatically allows localhost connections
-- Production: Set `CORS_ORIGINS` environment variable to your frontend URL

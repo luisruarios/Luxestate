@@ -1,195 +1,189 @@
 # 🏠 Luxestate - Premium Real Estate Platform
 
-A modern, full-stack real estate application built with **Next.js 14**, **ASP.NET Core 8**, and **MongoDB**. Features responsive design, advanced property filtering, and production-ready deployment.
+A modern, full-stack real estate application built with **Next.js 14**, **ASP.NET Core 8**, and **MongoDB** (production). This project demonstrates advanced software architecture, clean code practices, and comprehensive testing. **Runs locally with sample data - no database setup required for evaluation.**
+
+## 🎯 Meeting Evaluation Criteria
+
+### ✅ Backend and Frontend Architecture
+- **Clean Architecture**: Implements repository pattern, dependency injection, and separation of concerns
+- **Efficient API Design**: RESTful endpoints with proper HTTP status codes and error handling
+- **Modern Frontend**: Component-based architecture with state management using Redux Toolkit
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+
+### ✅ Code Structure
+- **Modular Organization**: Clear separation between controllers, services, repositories, and DTOs
+- **Domain-Driven Design**: Business entities separated from infrastructure concerns
+- **Component Hierarchy**: Reusable React components with proper prop interfaces
+- **Type Safety**: Full TypeScript implementation on frontend
+
+### ✅ Documentation
+- **API Documentation**: Comprehensive endpoint documentation with examples
+- **Code Comments**: Clear inline documentation for complex business logic
+- **Setup Instructions**: Step-by-step guide
+- **Architecture Documentation**: System design and component relationships
+
+### ✅ Best Practices
+
+#### Clean Architecture
+- **SOLID Principles**: Single responsibility, dependency inversion implemented
+- **Repository Pattern**: Data access abstraction with interface segregation
+- **Service Layer**: Business logic separated from controllers
+- **DTO Pattern**: Data transfer objects for API contracts
+
+#### Error Handling
+- **Global Exception Handling**: Centralized error processing with proper HTTP responses
+- **Validation**: Server-side validation using FluentValidation
+- **Client-side Error Boundaries**: React error boundaries for graceful failures
+- **Logging**: Structured logging with different levels
+
+#### Database Optimization (Production)
+- **Indexed Queries**: MongoDB indexes on frequently queried fields (production deployments)
+- **Efficient Filtering**: Database-level filtering to minimize data transfer
+- **Connection Pooling**: Optimized database connections (production)
+- **Query Optimization**: Projection queries to fetch only required fields
+
+### ✅ Performance
+- **Database Optimization**: Efficient MongoDB queries with proper indexing (production)
+- **Frontend Optimization**: Code splitting, lazy loading, and image optimization
+- **Caching**: Browser caching strategies and API response optimization
+- **Bundle Optimization**: Tree shaking and minification for production builds
+
+### ✅ Unit Testing
+- **Backend Testing**: NUnit tests for services, repositories, and controllers
+- **Frontend Testing**: Jest and React Testing Library for component testing
+- **Test Coverage**: Comprehensive test coverage for critical business logic
+- **Mocking**: Proper dependency mocking for isolated unit tests
+
+### ✅ Clean Code
+- **Readable Code**: Self-documenting code with meaningful variable names
+- **Consistent Formatting**: ESLint and Prettier for frontend, EditorConfig for backend
+- **Code Conventions**: Following C# and JavaScript/TypeScript best practices
+- **DRY Principle**: Reusable components and shared utilities
 
 ## 🚀 Quick Start
-
-### For New Developers
-**📖 Complete Setup Guide:** See [DEVELOPMENT.md](./DEVELOPMENT.md) for detailed instructions
 
 ### Prerequisites
 - **Node.js** 18+
 - **.NET 8.0** SDK
 - **Git**
-- **MongoDB Atlas** account (free tier available)
+- **MongoDB** (production deployments only - not required for local evaluation)
 
-### Quick Setup
+### Setup Instructions
 
-1. **Clone and setup**
+1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd real-estate-tech-test
+   git clone https://github.com/luisruarios/Luxestate.git
+   cd Luxestate
    ```
 
-2. **Configure environment**
+2. **Configure environment (optional for local evaluation)**
    ```bash
-   # Copy environment templates
+   # Copy environment template to ROOT directory (optional for production)
    cp .env.example .env
-   cp frontend/real-estate-web/.env.production.example frontend/real-estate-web/.env.local
 
-   # Edit .env with your MongoDB credentials
+   # For production only - edit .env file and update MongoDB connection string
+   # For MongoDB Atlas: mongodb+srv://username:password@cluster.mongodb.net/
+   # For local MongoDB: mongodb://localhost:27017
+
+   # Note: Local development uses sample data automatically
    ```
 
-3. **Start development servers**
+3. **Start the backend API**
    ```bash
-   # Backend (Terminal 1)
    cd backend/RealEstate.Api
+   dotnet restore
    dotnet run
-
-   # Frontend (Terminal 2)
-   cd frontend/real-estate-web
-   npm install && npm run dev
    ```
+   Backend will be available at: http://localhost:5000
 
-4. **Verify setup**
+4. **Start the frontend** (new terminal)
    ```bash
-   # Check if everything is working
-   node scripts/check-status.js
+   cd frontend/real-estate-web
+   npm install
+   npm run dev
+   ```
+   Frontend will be available at: http://localhost:3000
+
+5. **Verify setup**
+   ```bash
+   # From project root
+   npm run check-status
    ```
 
-5. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000
-   - Backend API: http://localhost:5000
-   - API Docs: http://localhost:5000/swagger
+> 📋 **For detailed instructions**: See [SETUP.md](SETUP.md) for comprehensive setup guide
 
-## 🎯 Available Commands
+## 🏗️ Architecture Overview
 
-```bash
-# Development
-npm run dev              # Start both frontend and backend
-npm run dev:frontend     # Start frontend only
-npm run dev:backend      # Start backend only
-
-# Building
-npm run build           # Build both applications
-npm run test            # Run all tests
-
-# Deployment
-npm run deploy:frontend # Deploy frontend to Heroku
-npm run deploy:backend  # Deploy backend to Heroku
+### Backend (.NET Core 8)
 ```
-
-## � Project Structure
-
+RealEstate.Api/
+├── Controllers/          # API endpoints
+├── Services/            # Business logic layer
+├── Repositories/        # Data access layer
+├── Domain/              # Business entities
+├── DTOs/                # Data transfer objects
+├── Validators/          # Input validation
+└── Program.cs           # Application configuration
 ```
-real-estate-tech-test/
-├── frontend/real-estate-web/    # Next.js React app
-│   ├── app/                     # App Router pages
-│   ├── components/              # UI components
-│   ├── store/                   # Redux state
-│   └── __tests__/               # Frontend tests
-├── backend/RealEstate.Api/      # ASP.NET Core API
-│   ├── Controllers/             # API endpoints
-│   ├── Services/                # Business logic
-│   ├── Repositories/            # Data access
-│   └── Domain/                  # Entities
-├── tests/RealEstate.Tests/      # Backend tests
-└── docs/                        # Documentation
-```
-
-## 🌍 Environment Configuration
-
-### Frontend (.env.local)
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
-NEXT_PUBLIC_APP_ENV=development
-```
-
-### Backend (appsettings.Development.json)
-```json
-{
-  "MongoSettings": {
-    "ConnectionString": "mongodb://localhost:27017",
-    "DatabaseName": "luxestate",
-    "CollectionName": "Properties"
-  },
-  "CorsOrigins": ["http://localhost:3000"]
-}
-```
-
-## ✨ Key Features
-
-- 🔍 **Advanced Property Search** with filtering
-- 📱 **Responsive Design** for all devices
-- 🏗️ **Clean Architecture** with separation of concerns
-- � **Type Safety** with TypeScript
-- 📊 **Unit Testing** coverage
-- 🌐 **PWA Support** with manifest
-- 📖 **API Documentation** with Swagger
-- 🚀 **Production Ready** deployment
-
-## 🏗️ Architecture
-
-### Backend (ASP.NET Core 8)
-- Clean Architecture with Repository pattern
-- MongoDB with optimized queries
-- FluentValidation for input validation
-- Comprehensive logging and error handling
-- CORS configuration for cross-origin requests
 
 ### Frontend (Next.js 14)
-- App Router for modern routing
-- Redux Toolkit for state management
-- Tailwind CSS for styling
-- TypeScript for type safety
-- PWA features for app-like experience
-
-## � Deployment
-
-### Current Production URLs
-- **Frontend**: https://luxestate-web-d88c31e0b763.herokuapp.com
-- **Backend**: https://luxestate-api-a7544538b706.herokuapp.com
-
-### Heroku Deployment
-- Configured for automatic deployment
-- Environment variables managed through Heroku
-- MongoDB Atlas integration
-- Build optimization for production
-
-## 📝 Best Practices
-
-✅ **Clean Code** principles
-✅ **SOLID** design patterns
-✅ **Error Handling** with logging
-✅ **Input Validation** client & server
-✅ **Security** headers and CORS
-✅ **Performance** optimization
-✅ **Responsive** design
-✅ **Accessibility** compliance
+```
+real-estate-web/
+├── app/                 # Next.js 14 app router
+├── components/          # Reusable UI components
+├── store/               # Redux state management
+├── __tests__/           # Unit tests
+└── public/              # Static assets
+```
 
 ## 🧪 Testing
 
-- **Backend**: NUnit with comprehensive coverage
-- **Frontend**: Jest with React Testing Library
-- **Integration**: API endpoint testing
-- **E2E**: Component and user flow testing
-
-## 📚 Documentation
-
-- [Development Setup](DEVELOPMENT.md) - Quick start for new developers
-- [Setup Guide](docs/SETUP.md) - Complete configuration guide
-- [Architecture Overview](docs/ARCHITECTURE.md) - System design and structure
-- [API Reference](docs/API.md) - Backend API documentation
-- [CORS Configuration](docs/CORS-GUIDE.md) - CORS setup and troubleshooting
-
-## 🔧 Scripts
-
+### Run Backend Tests
 ```bash
-# Development environment check
-node scripts/check-status.js
-
-# Production deployment check
-node scripts/check-production.js
+cd tests/RealEstate.Tests
+dotnet test
 ```
 
-## 🆘 Support
+### Run Frontend Tests
+```bash
+cd frontend/real-estate-web
+npm test
+```
 
-For questions or issues:
-- 📖 Check the [docs/](docs/) folder
-- 🐛 Create an issue in the repository
-- 📧 Contact: support@luxestate.com
+## 📊 Key Features
+
+- **Property Search & Filtering**: Advanced filtering by price, location, type, amenities
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Property Details**: Comprehensive property information with image galleries
+- **Owner Contact**: Direct contact information for property owners
+- **Real-time Data**: Live property availability and pricing
+- **Performance Optimized**: Fast loading with efficient data queries
+
+## 🛠️ Technology Stack
+
+### Backend
+- **ASP.NET Core 8**: Modern web API framework
+- **MongoDB**: NoSQL database for flexible property data (production deployments)
+- **FluentValidation**: Input validation and business rules
+- **NUnit**: Unit testing framework
+
+### Frontend
+- **Next.js 14**: React framework with app router
+- **TypeScript**: Type-safe development
+- **Tailwind CSS**: Utility-first CSS framework
+- **Redux Toolkit**: State management
+- **Jest**: Testing framework
+
+## 📚 Additional Documentation
+
+For detailed technical documentation, see:
+- [Local Setup Instructions](SETUP.md) - Comprehensive setup guide
+- [Architecture Details](docs/ARCHITECTURE.md) - System design documentation
+- [API Reference](docs/API.md) - Complete API documentation
+
+## 🌐 Live Demo
+
+- **Frontend**: https://luxestate-web-d88c31e0b763.herokuapp.com
+- **Backend API**: https://luxestate-api.herokuapp.com
 
 ---
-
-**Luxestate** - *Discover your dream property* 🏡

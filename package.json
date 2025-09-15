@@ -12,12 +12,8 @@
     "test:frontend": "cd frontend/real-estate-web && npm test",
     "test:backend": "cd tests/RealEstate.Tests && dotnet test",
     "test": "npm run test:backend && npm run test:frontend",
-    "start:frontend": "cd frontend/real-estate-web && npm start",
-    "start:backend": "cd backend/RealEstate.Api && dotnet run",
-    "clean": "cd frontend/real-estate-web && npm run clean && cd ../../backend/RealEstate.Api && dotnet clean",
     "check-status": "node scripts/check-status.js",
-    "deploy:frontend": "git subtree push --prefix=frontend/real-estate-web frontend main",
-    "deploy:backend": "git subtree push --prefix=backend/RealEstate.Api backend main"
+    "clean": "cd frontend/real-estate-web && npm run clean && cd ../../backend/RealEstate.Api && dotnet clean"
   },
   "keywords": [
     "real-estate",
