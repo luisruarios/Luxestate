@@ -1,5 +1,11 @@
 # 🏠 Luxestate - Premium Real Estate Platform
 
+
+For detailed technical documentation, see:
+- [Local Setup Instructions](SETUP.md) - Comprehensive setup guide
+- [Architecture Details](docs/ARCHITECTURE.md) - System design documentation
+- [API Reference](docs/API.md) - Complete API documentation
+
 A modern, full-stack real estate application built with **Next.js 14**, **ASP.NET Core 8**, and **MongoDB** (production). This project demonstrates advanced software architecture, clean code practices, and comprehensive testing. **Runs locally with sample data - no database setup required for evaluation.**
 
 ## 🎯 Meeting Evaluation Criteria
@@ -83,7 +89,7 @@ A modern, full-stack real estate application built with **Next.js 14**, **ASP.NE
 
    # For production only - edit .env file and update MongoDB connection string
    # For MongoDB Atlas: mongodb+srv://username:password@cluster.mongodb.net/
-   # For local MongoDB: mongodb://localhost:27017
+   # For local MongoDB: mongodb://localhost:27018
 
    # Note: Local development uses sample data automatically
    ```
@@ -174,16 +180,10 @@ npm test
 - **Redux Toolkit**: State management
 - **Jest**: Testing framework
 
-## 📚 Additional Documentation
-
-For detailed technical documentation, see:
-- [Local Setup Instructions](SETUP.md) - Comprehensive setup guide
-- [Architecture Details](docs/ARCHITECTURE.md) - System design documentation
-- [API Reference](docs/API.md) - Complete API documentation
 
 ## 🌐 Live Demo
 
 - **Frontend**: https://luxestate-web-d88c31e0b763.herokuapp.com
-- **Backend API**: https://luxestate-api.herokuapp.com
+- **Backend API**: https://luxestate-api-a7544538b706.herokuapp.com/api/properties?
 
 ---

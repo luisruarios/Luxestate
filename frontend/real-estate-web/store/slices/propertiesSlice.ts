@@ -58,7 +58,7 @@ const getApiUrl = () => {
       // Client-side fallback
       return window.location.hostname === 'localhost'
         ? 'http://localhost:5000'
-        : 'https://luxestate-api-dbbf54d6d2c4.herokuapp.com';
+        : 'https://luxestate-api-a7544538b706.herokuapp.com/';
     }
     // Server-side fallback
     return 'http://localhost:5000';

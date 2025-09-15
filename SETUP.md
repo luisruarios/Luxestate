@@ -10,9 +10,26 @@ This guide provides **detailed step-by-step instructions** to run the Luxestate 
 3. **Git** - [Download](https://git-scm.com/)
 4. **Docker** (optional, for local MongoDB) - [Download](https://docker.com/)
 
-### Database Options (Production Only)
 
-> **Note**: MongoDB is **only required for production deployment**. The application runs locally with sample data and doesn't need a database connection for evaluation.
+### Database Options:
+
+
+1. **Configure environment:**
+   ```bash
+   # Copy environment template to ROOT directory (for local testing)
+   cp .env.example .env
+
+   # Create .env file in the same directiroy as the example
+
+   # For local, set MongoDB: mongodb://localhost:27018
+   # For MongoDB Atlas: mongodb+srv://username:password@cluster.mongodb.net/
+   # For production only - edit .env file and update MongoDB connection string
+
+
+   # Note: Local development uses sample data automatically
+   ```
+
+> **Note**: MongoDB is **only required for production deployment**. The application runs locally with sample data and doesn't need a database connection for testing.
 
 
 #### Option A: Docker MongoDB (Recommended for Local Testing)
@@ -22,7 +39,7 @@ This guide provides **detailed step-by-step instructions** to run the Luxestate 
   cd backend
   docker compose up -d
   ```
-- This exposes MongoDB at `mongodb://localhost:27017` and creates a named volume for data persistence
+- This exposes MongoDB at `mongodb://localhost:27018` and creates a named volume for data persistence
 
 
 
@@ -40,7 +57,7 @@ Run with Docker:
 cd backend
 docker compose up -d
 ```
-This exposes Mongo at `mongodb://localhost:27017` and creates a named volume.
+This exposes Mongo at `mongodb://localhost:27018` and creates a named volume.
 
 
 ### Step 2: Start the Backend API
@@ -212,7 +229,7 @@ If you want to test with a live database (optional):
 
    For **Docker MongoDB** (recommended for local testing):
    ```bash
-   MongoSettings__ConnectionString=mongodb://localhost:27017
+   MongoSettings__ConnectionString=mongodb://localhost:27018
    MongoSettings__DatabaseName=luxestate
    MongoSettings__CollectionName=Properties
    ```
@@ -226,7 +243,7 @@ If you want to test with a live database (optional):
 
    For **Local MongoDB**:
    ```bash
-   MongoSettings__ConnectionString=mongodb://localhost:27017
+   MongoSettings__ConnectionString=mongodb://localhost:27018
    MongoSettings__DatabaseName=luxestate
    MongoSettings__CollectionName=Properties
    ```

@@ -68,7 +68,7 @@ Luxestate/
 # App runs with sample data automatically
 
 # For production only: Create .env file in root directory
-MongoSettings__ConnectionString=mongodb://localhost:27017  # OR MongoDB Atlas URL
+MongoSettings__ConnectionString=mongodb://localhost:27018  # OR MongoDB Atlas URL
 MongoSettings__DatabaseName=luxestate
 MongoSettings__CollectionName=Properties
 ```
