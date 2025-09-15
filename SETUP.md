@@ -11,6 +11,18 @@ This guide provides **detailed step-by-step instructions** to run the Luxestate 
 4. **Docker** (optional, for local MongoDB) - [Download](https://docker.com/)
 
 
+> **Note**: MongoDB is **only required for production deployment**. The application runs locally with sample data and doesn't need a database connection for testing.
+
+
+## 🚀 Step-by-Step Setup
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/luisruarios/Luxestate.git
+cd Luxestate
+```
+
+
 ### Database Options:
 
 
@@ -29,27 +41,6 @@ This guide provides **detailed step-by-step instructions** to run the Luxestate 
    # Note: Local development uses sample data automatically
    ```
 
-> **Note**: MongoDB is **only required for production deployment**. The application runs locally with sample data and doesn't need a database connection for testing.
-
-
-#### Option A: Docker MongoDB (Recommended for Local Testing)
-- **Docker** - [Download](https://docker.com/)
-- Run MongoDB in a container:
-  ```bash
-  cd backend
-  docker compose up -d
-  ```
-- This exposes MongoDB at `mongodb://localhost:27018` and creates a named volume for data persistence
-
-
-
-## 🚀 Step-by-Step Setup
-
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/luisruarios/Luxestate.git
-cd Luxestate
-```
 
 ## MongoDB
 Run with Docker:
